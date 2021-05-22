@@ -251,6 +251,17 @@ describe List do
     expect(list).to eq(@cls[*0...20])
   end
 
+  it "append" do
+    list = @cls.new
+    expect(list.append).to eq(list)
+    10.times { |i|
+      list << i
+    }
+    expect(list).to eq(@cls[*0...10])
+    list.append(*(10...20))
+    expect(list).to eq(@cls[*0...20])
+  end
+
   it "pop" do
     list = @cls.new
     expect(list.pop).to eq(nil)
