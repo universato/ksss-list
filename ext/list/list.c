@@ -549,16 +549,16 @@ inspect_list(VALUE self, VALUE dummy, int recur)
 
 	if (recur) return rb_usascii_str_new_cstr("[...]");
 
-	str = rb_str_buf_new2("#<");
+	str = rb_str_buf_new2("");
 	rb_str_buf_cat2(str, rb_obj_classname(self));
-	rb_str_buf_cat2(str, ": [");
+	rb_str_buf_cat2(str, "[");
 	LIST_FOR(self, c) {
 		s = rb_inspect(c->value);
 		if (LIST_PTR(self)->first == c) rb_enc_copy(str, s);
 		else rb_str_buf_cat2(str, ", ");
 		rb_str_buf_append(str, s);
 	}
-	rb_str_buf_cat2(str, "]>");
+	rb_str_buf_cat2(str, "]");
 	return str;
 }
 
@@ -566,7 +566,7 @@ static VALUE
 list_inspect(VALUE self)
 {
 	if (LIST_LEN(self) == 0)
-		return rb_sprintf("#<%s: []>", rb_obj_classname(self));
+		return rb_sprintf("%s[]", rb_obj_classname(self));
 	return rb_exec_recursive(inspect_list, self, 0);
 }
 

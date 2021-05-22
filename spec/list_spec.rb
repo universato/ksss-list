@@ -68,10 +68,10 @@ describe List do
 
   it "inspect" do
     list = @cls.new
-    expect(list.inspect).to eq("#<#{@cls}: []>")
+    expect(list.inspect).to eq("#{@cls}[]")
     list.push 1,[2],{:a=>3}
-    expect(list.inspect).to eq("#<#{@cls}: [1, [2], {:a=>3}]>")
-    expect(@subcls[1,2,3].inspect).to eq("#<#{@subcls}: [1, 2, 3]>")
+    expect(list.inspect).to eq("#{@cls}[1, [2], {:a=>3}]")
+    expect(@subcls[1,2,3].inspect).to eq("#{@subcls}[1, 2, 3]")
   end
 
   it "to_a" do
