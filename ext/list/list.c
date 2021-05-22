@@ -2551,9 +2551,11 @@ Init_list(void)
 	rb_define_method(cList, "concat", list_concat, 1);
 	rb_define_method(cList, "<<", list_push, 1);
 	rb_define_method(cList, "push", list_push_m, -1);
+	rb_define_method(cList, "append", list_push_m, -1);
 	rb_define_method(cList, "pop", list_pop_m, -1);
 	rb_define_method(cList, "shift", list_shift_m, -1);
 	rb_define_method(cList, "unshift", list_unshift_m, -1);
+	rb_define_method(cList, "prepend", list_unshift_m, -1);
 	rb_define_method(cList, "insert", list_insert, -1);
 	rb_define_method(cList, "each", list_each, 0);
 	rb_define_method(cList, "each_index", list_each_index, 0);
@@ -2577,6 +2579,7 @@ Init_list(void)
 	rb_define_method(cList, "map!", list_collect_bang, 0);
 	rb_define_method(cList, "select", list_select, 0);
 	rb_define_method(cList, "select!", list_select_bang, 0);
+	rb_define_method(cList, "filter!", list_select_bang, 0);
 	rb_define_method(cList, "keep_if", list_keep_if, 0);
 	rb_define_method(cList, "values_at", list_values_at, -1);
 	rb_define_method(cList, "delete", list_delete, 1);
