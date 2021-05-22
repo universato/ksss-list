@@ -92,7 +92,7 @@ Or install it yourself as:
 
 ## Testing
 
-This library is tested using [Travis](https://travis-ci.org/ksss/list).
+This library is tested using [Travis](https://travis-ci.com/ksss/list).
 
 - MRI 2.6
 
