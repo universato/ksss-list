@@ -87,7 +87,7 @@ describe List do
     list.freeze
     expect(list).to eq(@cls[])
     expect(list.frozen?).to eq(true)
-    expect{ list.push 1 }.to raise_error
+    expect{ list.push 1 }.to raise_error(FrozenError)
   end
 
   it "==" do
