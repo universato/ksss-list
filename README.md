@@ -94,9 +94,7 @@ Or install it yourself as:
 
 This library is tested using [Travis](https://travis-ci.org/ksss/list).
 
-- MRI 2.0.0
-- MRI 2.1.6
-- MRI 2.2.2
+- MRI 2.6
 
 ## Contributing
 
