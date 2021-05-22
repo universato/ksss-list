@@ -1054,11 +1054,11 @@ describe List do
   it "sample" do
     100.times do
       s = [2,1,0].sample
-      expect(s).to be_a_kind_of(Fixnum)
+      expect(s).to be_a_kind_of(Integer)
       expect(s).to be >= 0
       expect(s).to be <= 2
       @cls[2,1,0].sample(2).each {|sample|
-        expect(sample).to be_a_kind_of(Fixnum)
+        expect(sample).to be_a_kind_of(Integer)
         expect(sample).to be >= 0
         expect(sample).to be <= 2
       }
