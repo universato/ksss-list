@@ -1199,37 +1199,37 @@ describe List do
     expect(a.bsearch {|x| 4 - x / 2 }).to eq nil
   end
 
-  # # [FIXME] Ruby 2.7 raise infinite loop
-  # it "ring" do
-  #   len = 0
-  #   result = []
-  #   list = @cls[1,2,3]
-  #   ring = list.ring
-  #   ring.each do |i|
-  #     break if len == 1000
-  #     result << i
-  #     len += 1
-  #   end
-  #   expect(result).to eq([1,2,3] * 333 + [1])
-  #   expect(ring.object_id).to_not eq(list.object_id)
-  #   expect{ring.push 1}.to raise_error(RuntimeError)
-  # end
+  it "ring" do
+    len = 0
+    result = []
+    list = @cls[1,2,3]
+    ring = list.ring
+    ring.each do |i|
+      break if len == 1000
+      result << i
+      len += 1
+    end
+    expect(result).to eq([1,2,3] * 333 + [1])
+    expect(ring.object_id).to_not eq(list.object_id)
+    # [FIXME] Ruby 2.7 raise infinite loop
+    # expect{ring.push 1}.to raise_error(RuntimeError)
+  end
 
-  # # [FIXME] Ruby 2.7 raise infinite loop
-  # it "ring!" do
-  #   len = 0
-  #   result = []
-  #   list = @cls[1,2,3]
-  #   ring = list.ring!
-  #   ring.each do |i|
-  #     break if len == 1000
-  #     result << i
-  #     len += 1
-  #   end
-  #   expect(result).to eq([1,2,3] * 333 + [1])
-  #   expect(ring.object_id).to eq(list.object_id)
-  #   expect{ring.push 1}.to raise_error(RuntimeError)
-  # end
+  it "ring!" do
+    len = 0
+    result = []
+    list = @cls[1,2,3]
+    ring = list.ring!
+    ring.each do |i|
+      break if len == 1000
+      result << i
+      len += 1
+    end
+    expect(result).to eq([1,2,3] * 333 + [1])
+    expect(ring.object_id).to eq(list.object_id)
+    # [FIXME] Ruby 2.7 raise infinite loop
+    # expect{ring.push 1}.to raise_error(RuntimeError)
+  end
 
   it "ring?" do
     list = @cls[1,2,3]
